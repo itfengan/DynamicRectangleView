@@ -19,7 +19,7 @@ import android.view.View;
 public class DynamicRectangleView extends View {
 
     // Default  values
-    private final static int DEFAULT_START_COLOR = Color.parseColor("#FF9D6F");
+    private final static int DEFAULT_START_COLOR = Color.parseColor("#88D94600");
     private final static int DEFAULT_END_COLOR = Color.parseColor("#D94600");
     private final static float DEFAULT_PERCENT = (float) 0.5;//右边高度占左边高度的百分比
     private final static float DEFAULT_LIMIT_PERCENT = (float) 0.2;//最小高度占左边高度的百分比
@@ -35,6 +35,7 @@ public class DynamicRectangleView extends View {
     private int mEndColor;
     private float mPercent;
     private float mLimitPercent;
+    private Path mPath;
 
 
     public DynamicRectangleView(Context context) {
@@ -63,6 +64,7 @@ public class DynamicRectangleView extends View {
 
     private void initView(Context context) {
         mPaint = new Paint();
+        mPath = new Path();
         mPaint.setAntiAlias(true);
 //        mPaint.setColor(Color.RED);//纯色
     }
@@ -82,38 +84,29 @@ public class DynamicRectangleView extends View {
         //设置当前高度
         currentRightHeight = OriginalRightHeight;
         currentLeftHeight = OriginalLeftHeight;
-    }
-
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
         // LinearGradient 第一个参数第二个参数为 起始位置x,y  三四参数为终点位置x,y。
         // 如果x不变则为y轴渐变， y不变则为x轴渐变
         // 第五个参数为颜色渐变，此处为红色渐变为绿色
         // 第七个参数为渐变次数，可repeat
-        Path path = new Path();
         Shader mShader = new LinearGradient(0, 0, maxHeight, maxHeight,
-
                 new int[]{mStartColor, mEndColor},
-
                 null, Shader.TileMode.CLAMP);
-
         // Shader.TileMode三种模式
         // REPEAT:沿着渐变方向循环重复
-
         // CLAMP:如果在预先定义的范围外画的话，就重复边界的颜色
-
         // MIRROR:与REPEAT一样都是循环重复，但这个会对称重复
-
         mPaint.setShader(mShader);// 用Shader中定义定义的颜色来话
-
-        path.moveTo(0, 0);
-        path.lineTo(getMeasuredWidth(), 0);
-        path.lineTo(getMeasuredWidth(), currentRightHeight);
-        path.lineTo(0, currentLeftHeight);
-        path.close();
-        canvas.drawPath(path, mPaint);
+    }
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        mPath.reset();
+        mPath.moveTo(0, 0);
+        mPath.lineTo(getMeasuredWidth(), 0);
+        mPath.lineTo(getMeasuredWidth(), currentRightHeight);
+        mPath.lineTo(0, currentLeftHeight);
+        mPath.close();
+        canvas.drawPath(mPath, mPaint);
     }
 
     public void setPercent(float percent) {
