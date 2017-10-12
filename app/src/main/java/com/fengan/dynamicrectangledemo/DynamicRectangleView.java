@@ -53,7 +53,7 @@ public class DynamicRectangleView extends View {
         final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.DynamicRectangleView);
         try {
             mPercent = typedArray.getFloat(R.styleable.DynamicRectangleView_fengan_percent, DEFAULT_PERCENT);
-            mLimitPercent = typedArray.getFloat(R.styleable.DynamicRectangleView_fengan_percent, DEFAULT_LIMIT_PERCENT);
+            mLimitPercent = typedArray.getFloat(R.styleable.DynamicRectangleView_fengan_limit_percent, DEFAULT_LIMIT_PERCENT);
             mStartColor = typedArray.getColor(R.styleable.DynamicRectangleView_fengan_start_color, DEFAULT_START_COLOR);
             mEndColor = typedArray.getColor(R.styleable.DynamicRectangleView_fengan_end_color, DEFAULT_END_COLOR);
         } finally {
