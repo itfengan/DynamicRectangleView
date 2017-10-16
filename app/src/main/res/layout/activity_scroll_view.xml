@@ -4,20 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <com.fengan.dynamicrectangledemo.DynamicRectangleView
+
+    <com.fengan.dynamicrectanglelibrary.DynamicRectangleView
         android:id="@+id/drv"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        ></com.fengan.dynamicrectangledemo.DynamicRectangleView>
+        ></com.fengan.dynamicrectanglelibrary.DynamicRectangleView>
 
     <com.fengan.dynamicrectangledemo.ObservableScrollView
         android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="800dp"

@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SeekBar;
 
+import com.fengan.dynamicrectanglelibrary.DynamicRectangleView;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

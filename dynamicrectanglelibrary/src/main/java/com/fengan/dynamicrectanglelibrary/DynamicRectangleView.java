@@ -1,4 +1,4 @@
-package com.fengan.dynamicrectangledemo;
+package com.fengan.dynamicrectanglelibrary;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -110,7 +110,7 @@ public class DynamicRectangleView extends View {
     }
 
     public void setPercent(float percent) {
-        Log.e("fengan", "percent=" + percent);
+        Log.e("DynamicRectangleView", "percent=" + percent);
         currentRightHeight = OriginalRightHeight * (1 - percent);
         currentLeftHeight = OriginalLeftHeight * (1 - percent);
         if (currentLeftHeight < minHeight) {

@@ -9,13 +9,13 @@
     android:orientation="vertical"
     tools:context="com.fengan.dynamicrectangledemo.MainActivity">
 
-    <com.fengan.dynamicrectangledemo.DynamicRectangleView
+    <com.fengan.dynamicrectanglelibrary.DynamicRectangleView
         android:id="@+id/drv"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         app:fengan_limit_percent="0.2"
         app:fengan_percent="0.5"
-        ></com.fengan.dynamicrectangledemo.DynamicRectangleView>
+        ></com.fengan.dynamicrectanglelibrary.DynamicRectangleView>
 
     <SeekBar
         android:id="@+id/sb"
