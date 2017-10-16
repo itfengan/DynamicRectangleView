@@ -18,6 +18,10 @@ A dynamic rectangle that can be used as a background in a scrollable view
 
 ## 使用过程 ##
 
+> 依赖
+
+  ` compile 'com.github.itfengan:DynamicRectangleView:v1.1'`
+
 > layout
 
         <com.fengan.dynamicrectangledemo.DynamicRectangleView
